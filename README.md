@@ -1,13 +1,13 @@
 # Problem sheet 2
-#Data Representation and Querying
+Data Representation and Querying
 
 One Paragraph of project description goes here
 
-## Getting Started
+## Part One
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Part Two
 
 What things you need to install the software and how to install them
 
@@ -15,7 +15,7 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### Installing
+## Part Three
 
 A step by step series of examples that tell you have to get a development env running
 
@@ -33,7 +33,7 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
+## Part Four
 
 Explain how to run the automated tests for this system
 
