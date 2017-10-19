@@ -4,6 +4,11 @@ Data Representation and Querying
 This is our 2nd problem sheet entitled "Web applications" There are 8 parts
 to it and I will go through them individually.
 
+### Some of the resources that I used
+
+http://blog.scottlogic.com/2017/02/28/building-a-web-app-with-go.html
+https://curl.haxx.se/docs/httpscripting.html
+
 ### Running the code
 
 First you must have "Go" on your computer. This can be found and downloaded at https://golang.org/.
