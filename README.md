@@ -1,11 +1,54 @@
 # Problem sheet 2
 Data Representation and Querying
 
-One Paragraph of project description goes here
+This is our 2nd problem sheet entitled "Web applications" There are 8 parts
+to it and I will go through them individually.
 
-## Part One
+### Running the code
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+First you must have "Go" on your computer. This can be found and downloaded at https://golang.org/.
+If you navigate to the folder that contains these files you can type :
+go run <file name> to run the code.
+
+## Part One: Guessing game
+
+ToDo::Create a web application in Go that responds with the text “Guessing game”. This should be the response body irrespective of what request is received. Explain in your README how to examine the response, including the headers, using curl.
+
+What’s going on here is that in the main function, we are handling any requests made to "/" by passing these requests on to a function called server. The http package that has been imported contains the function http.HandleFunc() which is taking care of sending all the requests made to "/" on to our helloWorld function. The http.HandleFunc() takes two inputs, the first being a pattern which is a string and the second is a handler (a function that needs a ResponseWriter and a pointer to a Request). In order to satisfy the http.HandleFunc our helloWorld function receives two inputs, the first input is called w and is of type http.ResponseWriter. W is where a response can be sent. The second input to the helloWorld function is called r and this is a pointer to a http.Request (the * prefix indicates that this is a pointer
+
+When I opened cmder, where I already have curl installed in my bin folder I could examine the response, including the headers by this command
+
+```
+curl --verbose localhost:8080
+```
+
+This was the result
+
+```
+ Rebuilt URL to: localhost:8080/                          
+   Trying ::1...                                          
+ TCP_NODELAY set                                          
+ Connected to localhost (::1) port 8080 (#0)              
+ GET / HTTP/1.1                                           
+ Host: localhost:8080                                     
+ User-Agent: curl/7.55.1                                  
+ Accept: */*                                              
+                                                          
+ HTTP/1.1 200 OK                                          
+ Date: Thu, 19 Oct 2017 12:54:59 GMT                      
+ Content-Length: 13                                       
+ Content-Type: text/plain; charset=utf-8                  
+                                                          
+uessing Game* Connection #0 to host localhost left intact 
+```
+If I want only the server response's HTTP headers, instead of the page data I can use 
+
+```
+curl -I localhost:8080
+```
+
+
+
 
 ## Part Two
 
