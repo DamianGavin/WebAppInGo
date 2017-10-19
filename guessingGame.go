@@ -5,7 +5,7 @@ package main
 
 import (
 	"fmt"
-	"io"
+	//"io"
 	"log"
 	"net/http"
 	"strconv"
