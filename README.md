@@ -52,7 +52,7 @@ curl -I localhost:8080
 
 ## Part Two-Make the text a H1
 
-For this problem I simply inserted a <h1> in the print statement
+For this problem I simply inserted a h1 tag in the print statement
 
 ```
 fmt.Fprintf(w, "<h1>Guessing Game</h1>")
