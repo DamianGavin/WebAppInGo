@@ -67,17 +67,20 @@ fmt.Fprintf(w, "<h1>Guessing Game</h1>")
 
 Change the web application to serve a web page rather than hard-coding the text into the web application executable. Use the Bootstrap starter template,changing the header to say "Guessing game". Add a link on the page to the relative URL /guess with the text “New game”. Have this page served as the root resource in the web application.
 
+For this part I opened the provided bootstrap template link and copied the html into a new file in the project folder. I basically needed to swap my "Guessing Game" print line with the html template. In my .go file I inserted this line instead
 ```
-Give the example
+func server(w http.ResponseWriter, r *http.Request){
+	//fmt.Fprintf(w, "<h1>Guessing Game</h1>")
+	http.ServeFile(w, r, "guess.html")}
 ```
+The ServeFile is a lower level helper that can be used to implement something similar to FileServer, or implement my own path munging potentially, and any number of things. It simply takes the named local file and sends it over the HTTP connection.
 
+```
+ <h1>Guessing Game</h1><a href = "/guess">New game</a>
+```
+This is the link I inserted in my html file, It is a basic html tag and renders the words "New game" as a link to /guess which appears in the url. 
 And repeat
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Part Four-Add a guess route
 
