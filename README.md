@@ -50,19 +50,17 @@ curl -I localhost:8080
 
 
 
-## Part Two
+## Part Two-Make the text a H1
 
-What things you need to install the software and how to install them
+For this problem I simply inserted a <h1> in the print statement
 
 ```
-Give examples
+fmt.Fprintf(w, "<h1>Guessing Game</h1>")
 ```
 
-## Part Three
+## Part Three-Serve a page using Bootstrap
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Change the web application to serve a web page rather than hard-coding the text into the web application executable. Use the Bootstrap starter template,changing the header to say "Guessing game". Add a link on the page to the relative URL /guess with the text “New game”. Have this page served as the root resource in the web application.
 
 ```
 Give the example
