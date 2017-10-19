@@ -4,13 +4,13 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"net/http"
 )
 
 func server(w http.ResponseWriter, r *http.Request){
-	fmt.Fprintf(w, "<h1>Guessing Game</h1>")
-}
+	//fmt.Fprintf(w, "<h1>Guessing Game</h1>")
+	http.ServeFile(w, r, "guess.html")}
 
 func main(){
 	http.HandleFunc("/", server)//"/"handles any requests and passes to server

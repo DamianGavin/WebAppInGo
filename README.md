@@ -6,8 +6,8 @@ to it and I will go through them individually.
 
 ### Some of the resources that I used
 
-http://blog.scottlogic.com/2017/02/28/building-a-web-app-with-go.html
-https://curl.haxx.se/docs/httpscripting.html
+1. http://blog.scottlogic.com/2017/02/28/building-a-web-app-with-go.html
+2. https://curl.haxx.se/docs/httpscripting.html
 
 ### Running the code
 
