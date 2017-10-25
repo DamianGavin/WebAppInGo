@@ -8,6 +8,7 @@ to it and I will go through them individually.
 
 1. http://blog.scottlogic.com/2017/02/28/building-a-web-app-with-go.html
 2. https://curl.haxx.se/docs/httpscripting.html
+3. https://stackoverflow.com/questions/28793619/golang-what-to-use-http-servefile-or-http-fileserver
 
 ### Running the code
 
