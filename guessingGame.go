@@ -15,16 +15,16 @@ type myMsg struct{
 Message string
 }
 
-func requestHandler(w http.ResponseWriter, r *http.Request) {
+func server(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type","text/html")
 
-	http.ServeFile(w, r, "04_index.html")
+	http.ServeFile(w, r, "index.html")
 }
 
 func guessHandler(w http.ResponseWriter, r *http.Request){
 
-	//http.ServeFile(w, r, "04_guess.html")
+	//http.ServeFile(w, r, "guess.html")
 
 		message :="Guess a number between 1 and 20"
 		
@@ -49,7 +49,7 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 			
 			http.SetCookie(w,cookie)
 			
-			t, _ := template.ParseFiles("04_guess.tmpl")
+			t, _ := template.ParseFiles("guess.tmpl")
 
 			t.Execute(w, &myMsg{Message:message})
 }
