@@ -13,6 +13,7 @@ import (
 
 type templateData struct{
 Message string
+Guess string
 }
 
 func server(w http.ResponseWriter, r *http.Request) {
@@ -24,7 +25,8 @@ func server(w http.ResponseWriter, r *http.Request) {
 
 func guessHandler(w http.ResponseWriter, r *http.Request){
 
-	//http.ServeFile(w, r, "guess.html")
+	r.ParseForm();
+	guess := r.FormValue("guess")
 
 		message :="Please guess a number between 1 and 20"
 		
@@ -37,7 +39,7 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 				
 				target, _ = strconv.Atoi(cookie.Value)
 				if target ==0{
-					target = rand.Intn(20-1)
+					target = rand.Intn(1-20)
 				}
 			}
 		
@@ -51,7 +53,7 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 			
 			t, _ := template.ParseFiles("guess.tmpl")
 
-			t.Execute(w, &templateData{Message:message})
+			t.Execute(w, &templateData{Message:message,Guess:guess})
 }
 
 

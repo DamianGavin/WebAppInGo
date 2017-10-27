@@ -13,6 +13,7 @@ to it and I will go through them individually.
 5. https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template
 6. https://www.youtube.com/watch?v=GTSq1VPPFco&feature=youtu.be
 7. https://golang.org/pkg/text/#Template.Execute
+8. https://astaxie.gitbooks.io/build-web-application-with-golang/de/04.1.html
 
 ### Running the code
 
@@ -135,15 +136,47 @@ within my func guesshandler. Then I needed to call it using data binding in my g
 In the /guess handler check if the cookie called target is set. If it is not, generate a random number between 1 and 20 and set a cookie called target to that value in the response. Otherwise, leave the cookie at its current value.
 
 ```
-Give an example
+var cookie, err = r.Cookie("target")
+		
+			if err == nil{
+				
+				target, _ = strconv.Atoi(cookie.Value)
+				if target ==0{
+					target = rand.Intn(1-20)
+				}
+			}
+		
+			cookie = &http.Cookie{
+				Name: "target",
+				Value: strconv.Itoa(target),
+				Expires: time.Now().Add(72 * time.Hour),
+			}
+			
+			http.SetCookie(w,cookie)
 ```
 
 ## Part Seven-Check for a variable
 
 Have the /guess handler check if a URL encoded variable called guess has been set to an integer. If it has, have the text “You guessed {guess}.” inserted into the template where {guess} is replaced with the value of guess.
 
+Here I needed to change the input type from "text" to "number" in my .tmpl template. I also instigated my data binding metod to receive the guessed number as {{.Guess}}, I just used a p tag.
+
 ```
-Give an example
+<input type="number" name="guess">
+```
+```
+<p>You guessed {{.Guess}}</p>
+```
+```
+type templateData struct{
+Message string
+Guess string
+}
+```
+I had to change my struct to accomodate guess, and also read guess as an int
+```
+r.ParseForm();
+guess := r.FormValue("guess")
 ```
 
 ## Part Eight-Compare the cookie and the guess

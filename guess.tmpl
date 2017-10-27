@@ -18,9 +18,12 @@
     <h2>{{.Message}}</h2>
     
     <form action="/guess" method="GET">
-    <input type="text" name="guess">
+    Enter Guess:
+    <input type="number" name="guess">
     <input type="submit" value="Guess">
     </form>
+
+    <p>You guessed {{.Guess}}</p>
     
 
     <!-- Optional JavaScript -->
