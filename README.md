@@ -10,6 +10,9 @@ to it and I will go through them individually.
 2. https://curl.haxx.se/docs/httpscripting.html
 3. https://stackoverflow.com/questions/28793619/golang-what-to-use-http-servefile-or-http-fileserver
 4. https://data-representation.github.io/
+5. https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template
+6. https://www.youtube.com/watch?v=GTSq1VPPFco&feature=youtu.be
+7. https://golang.org/pkg/text/#Template.Execute
 
 ### Running the code
 
@@ -88,12 +91,43 @@ And repeat
 
 Create a new route in your application at /guess. Have it serve a new page called guess.html. Use the same Bootstrap code for the page as in index.html but add a level 2 heading with the text “Guess a number between 1 and 20”. Add a form, with a text input with the name “guess” and a submit button with the label “Guess”. The action of the form should be /guess and the method should be GET.
 
+Here I inserted this code into my guess.html
+
+```
+<h2>Guess a number between 1 and 20</h2>
+	
+	<form action = "/guess" method = "GET">
+	Enter guess:
+	
+	<input name = "guess" type = "text">
+	<br/>
+	<br/>
+	<button value = "guess">Guess</button>
+	</form>
+```
 ### Part Five-Turn the guess page into a template
 
 Change the web application to use the guess.tmpl file as a template. Add a single variable to the template called Message and create a struct in Go containing a single string. Create an instance of the struct with the string set to “Guess a number between 1 and 20” and have the template render this in the H2 tag.
 
+Here I copied the bootstrap code, but rather than giving it the html extension I called it guess.tmpl. This file will only render internally and cannot be accessed by the user. It has all the functionality of the other html files but the internal mechanisms of the program will use it only as a template.
+I created the following struct in the .go file
+
 ```
-Give an example
+type templateData struct{
+Message string
+}
+```
+and this was my variable declaration, also in .go.
+```
+message :="Please guess a number between 1 and 20"
+```
+I then had to insert
+```
+t.Execute(w, &templateData{Message:message})
+```
+within my func guesshandler. Then I needed to call it using data binding in my guess.tmpl within the required H2 tag.
+```
+ <h2>{{.Message}}</h2>
 ```
 
 ### Part Six-Check for a cookie

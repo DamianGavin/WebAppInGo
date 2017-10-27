@@ -11,7 +11,7 @@ import (
 	"strconv"
 )
 
-type myMsg struct{
+type templateData struct{
 Message string
 }
 
@@ -51,7 +51,7 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 			
 			t, _ := template.ParseFiles("guess.tmpl")
 
-			t.Execute(w, &myMsg{Message:message})
+			t.Execute(w, &templateData{Message:message})
 }
 
 
